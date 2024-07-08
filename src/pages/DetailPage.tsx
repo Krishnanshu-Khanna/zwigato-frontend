@@ -120,8 +120,8 @@ const DetailPage = () => {
 				<div className='flex flex-col gap-4'>
 					<RestaurantInfo restaurant={restaurant} />
 					<span className='text-2xl font-bold tracking-tight'>Menu</span>
-					{restaurant.menuItems.map((menuItem) => (
-						<MenuItem menuItem={menuItem} addToCart={() => addToCart(menuItem)} />
+					{restaurant.menuItems.map((menuItem,index) => (
+						<MenuItem menuItem={menuItem} addToCart={() => addToCart(menuItem)} key={index}/>
 					))}
 				</div>
 
