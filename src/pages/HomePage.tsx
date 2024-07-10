@@ -2,12 +2,31 @@ import landingImage from "../assets/landing.png";
 import appDownloadImage from "../assets/appDownload.png";
 import SearchBar, { SearchForm } from "@/components/SearchBar";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { toast } from "sonner";
 
 const HomePage = () => {
 	const navigate = useNavigate();
 	const handleSearchSubmit = (formData: SearchForm) => {
 		navigate(`/search/${formData.searchQuery}`);
-	}
+	};
+	useEffect(() => {
+		toast.info(
+			<p>
+				Welcome to Zwigato! Start by searching for your favourite city.
+				<br />
+				We're currently serving in <b>Chandigarh, Mumbai, New Delhi</b>! More cities
+				coming soon!
+			</p>,
+			{
+				duration: 10000,
+				style: {
+					backgroundColor: "#ffff",
+					border: "none",
+				},
+			}
+		);
+	}, []);
 
 	return (
 		<div className='flex flex-col gap-12'>
@@ -16,7 +35,10 @@ const HomePage = () => {
 					Tuck into a takeway today
 				</h1>
 				<span className='text-xl'>Food is just a click away!</span>
-				<SearchBar placeHolder="Search by City or Town" onSubmit={handleSearchSubmit}/>
+				<SearchBar
+					placeHolder='Search by City or Town'
+					onSubmit={handleSearchSubmit}
+				/>
 			</div>
 			<div className='grid md:grid-cols-2 gap-5'>
 				<img src={landingImage} />
