@@ -19,7 +19,7 @@ const HomePage = () => {
 				coming soon!
 			</p>,
 			{
-				duration: 10000,
+				duration: 2000,
 				style: {
 					backgroundColor: "#ffff",
 					border: "none",
